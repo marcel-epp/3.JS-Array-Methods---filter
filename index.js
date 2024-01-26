@@ -23,13 +23,38 @@ const cards = [
   },
 ];
 
-const onlyCardWithIdTwo = null;
+const onlyCardWithIdTwo = cards.filter((card) => {
+  return card.id.startsWith(2);
+});
 
-const allCardsWith3Tags = null;
+const allCardsWith3Tags = cards.filter((card) => {
+  return card.tags.length === 3;
+});
 
-const allCardsThatAreNotBookmarked = null;
+// const allCardsThatAreNotBookmarked = cards.filter((card) => {
+//   //console.log(card.isBookmarked);
+//   return !card.isBookmarked;
+// });
 
-const allCardsWithTagsHTMLOrJSThatAreBookmarked = null;
+const allCardsThatAreNotBookmarked = cards.filter((card) => {
+  if (card.isBookmarked) {
+    return false;
+  } else {
+    return true;
+  }
+});
+
+const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
+  console.log(card.tags.includes("html"));
+  if (
+    (card.isBookmarked && card.tags.includes("html")) ||
+    card.tags.includes("js")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+});
 
 export {
   onlyCardWithIdTwo,
